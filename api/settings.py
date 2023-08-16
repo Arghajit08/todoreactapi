@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,14 +79,7 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'task_zn9r',
-        'USER': 'task_zn9r_user',
-        'PASSWORD': 'sy6F9X8DV3hCeqy3SYD9JFoW9xQDamFc',
-        'HOST': 'dpg-cjef47rbq8nc73e68p3g-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default='postgres://task_zn9r_user:sy6F9X8DV3hCeqy3SYD9JFoW9xQDamFc@dpg-cjef47rbq8nc73e68p3g-a/task_zn9r', conn_max_age=600),
 }
 
 
